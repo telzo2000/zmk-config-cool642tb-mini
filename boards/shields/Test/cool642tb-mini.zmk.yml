@@ -1,0 +1,8 @@
+file_format: "1"
+id: cool642tb-mini
+name: cool642tb-mini
+type: shield
+url: https://github.com/tadanaka/zmk-config-cool642tb-mini
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
