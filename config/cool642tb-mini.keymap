@@ -14,16 +14,100 @@
 
 / {
     combos {
-        compatible = "zmk,combos";
-
-        shift_tab {
-            bindings = <&kp LANG2>;
-            key-positions = <12 13>;
+        Esc {
+            bindings = <&kp LS(ESC)>;
+            key-positions = <0 1>;
         };
 
-        lang {
-            bindings = <&kp LANG1>;
-            key-positions = <18 19>;
+        Tab {
+            bindings = <&kp TAB>;
+            key-positions = <12 11>;
+        };
+
+        CapsLock {
+            bindings = <&kp CAPS>;
+            key-positions = <22 21>;
+        };
+
+        eq {
+            bindings = <&bt BT_CLR_ALL>;
+            key-positions = <9 10>;
+            layers = <1>;
+        };
+
+        BS {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <9 10>;
+            layers = <0>;
+        };
+    };
+
+    macros {
+        to_layer_0: to_layer_0 {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            label = "TO_LAYER_0";
+        };
+    };
+
+    behaviors {
+        lt_to_layer_0: lt_to_layer_0 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_TO_0";
+            bindings = <&mo>, <&to_layer_0>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
+            tap-ms = <20>;
+        };
+
+        // エンコーダー：キー
+
+        rot_kp: sensor_rotate_kp {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        // エンコーダー：マウススクロール 
+
+        rot_msc: sensor_rotate_msc {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            tap-ms = <20>;
+            bindings = <&msc>, <&msc>;
+        };
+
+        // エンコーダー：マウススクロール(MOVE_Y)
+
+        scroll_move_y: sensor_rotate_msc_for_move_y {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc MOVE_Y(20)>, <&msc MOVE_Y(-20)>;
+
+            // tap-ms下限メモ Yの値で可変: Y(15) <81>, Y(20) <65>, Y(25) <49>
+
+            tap-ms = <65>;
+        };
+
+        // エンコーダー：マウススクロール(MOVE_X)
+
+        scroll_move_x: sensor_rotate_msc_for_move_x {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc MOVE_X(20)>, <&msc MOVE_X(-20)>;
+
+            // tap-ms下限メモ Xの値で可変: X(15) <81>, X(20) <65>, X(25) <49>
+
+            tap-ms = <65>;
         };
     };
 
