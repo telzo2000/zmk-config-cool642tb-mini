@@ -111,24 +111,6 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        esc {
-            bindings = <&kp ESCAPE>;
-            key-positions = <0 1>;
-        };
-
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <10 11>;
-        };
-
-        bt_clear_all {
-            bindings = <&bt BT_CLR_ALL>;
-            key-positions = <9 8>;
-        };
-    };
 
     keymap {
         compatible = "zmk,keymap";
