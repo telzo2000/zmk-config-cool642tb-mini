@@ -122,7 +122,7 @@
 &kp TAB  &kp LEFT_CONTROL  &kp LEFT_GUI  &kp LEFT_ALT  &lt 1 SPACE  &mkp MB1                      &mkp MB2               &lt 2 SPACE                             &kp BACKSPACE
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>, <&inc_dec_kp 0 0>;
+            sensor-bindings = <&scroll_move_y>;
         };
 
         FUNCTION {
@@ -133,7 +133,7 @@
 &bt BT_PRV       &bt BT_NXT   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none             &kp MINUS          &bt BT_CLR_ALL                                      &kp LEFT_SHIFT
             >;
         };
-
+           sensor-bindings = <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>;
         NUM {
             bindings = <
 &kp F1       &kp F2   &kp F3             &kp F4         &kp F5                                                  &kp F6          &kp F7          &kp F8          &kp F9           &kp F10
@@ -142,7 +142,7 @@
 &kp RSHIFT   &kp TAB  &kp LCTRL          &kp RGUI       &kp LEFT_ALT  &kp UNDERSCORE  &none                     &bt BT_CLR_ALL                                                   &kp LEFT_SHIFT
             >;
         };
-
+            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
         ARROW {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
@@ -159,7 +159,7 @@
 &trans  &trans  &trans  &trans  &trans                      &trans  &trans    &trans  &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &mkp MB1  &trans  &mkp MB2  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans    &trans  &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                              &trans
+&trans  &trans  &trans  &trans  &trans  &mkp MB1    &mkp MB2  &trans                              &trans
             >;
         };
 
